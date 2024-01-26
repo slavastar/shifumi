@@ -1,47 +1,44 @@
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { useState } from "react";
 import Choice from "./Choice";
-import {
-  Image,
-  Stack,
-  Box,
-  Flex,
-  Grid,
-  GridItem,
-  Center,
-  AbsoluteCenter,
-  Heading,
-  Divider,
-} from "@chakra-ui/react";
+import { Box, Flex, Center } from "@chakra-ui/react";
 
-import defaultAvatar from "./assets/avatars/avatar-1.png";
+import PlayerProfile from "./PlayerProfile";
 
-function Player({ playerName }) {
-  const [name, setName] = useState(playerName);
-  const [points, setPoints] = useState(0);
+function Player({ isComputer, playerName, playGame, setPlayerOption, setComputerOption }) {
+
+    const getRandomOption = () => {
+        const options = ['rock', 'paper', 'scissors']
+        return options[Math.floor(Math.random() * options.length)];
+    }
 
   return (
     <Flex>
       <Box w="600px" h="500px" bg="white">
-        <Center>
-          <Image
-            boxSize="100px"
-            objectFit="cover"
-            src={defaultAvatar}
-            alt="rock"
-          />
-        </Center>
-        <Heading size="xl">{name}</Heading>
-        <Heading size="md">Points: {points}</Heading>
+        <PlayerProfile
+          playerName={playerName}
+          isComputer={isComputer}
+        ></PlayerProfile>
 
         <Center paddingTop="5">
-          <Choice></Choice>
+          <Choice isComputer={isComputer}></Choice>
         </Center>
-        <Box border="10" borderColor="gray.200">
-          <Button colorScheme="blue" marginTop="5">
-            Play
-          </Button>
-        </Box>
+        {!isComputer && (
+          <>
+            <Box border="10" borderColor="gray.200">
+              <Button
+              colorScheme="blue"
+              marginTop="5"
+              onClick={() => {
+                setComputerOption(getRandomOption())
+                playGame()
+              }}
+              >
+                Play
+              </Button>
+            </Box>
+          </>
+        )}
       </Box>
     </Flex>
   );

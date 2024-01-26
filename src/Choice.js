@@ -5,7 +5,7 @@ import rockSrc from "./assets/game-icons/rock.png";
 import scissorsSrc from "./assets/game-icons/scissors.png";
 import paperSrc from "./assets/game-icons/paper.png";
 
-function Choice({}) {
+function Choice({ isComputer }) {
   const [option, setOption] = useState("rock");
   const borderSize = "2px";
 
