@@ -1,15 +1,15 @@
 import rockSrc from "assets/game-icons/rock.png";
-import UserGameIcon from "./Icon";
+import ComputerGameIcon from "./Icon";
 
 function UserRockIcon({ currentOption, setCurrentOption, borderSize }) {
   return (
-    <UserGameIcon
+    <ComputerGameIcon
       iconSrc={rockSrc}
       iconOption="rock"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}
       borderSize={borderSize}
-    ></UserGameIcon>
+    ></ComputerGameIcon>
   );
 }
 

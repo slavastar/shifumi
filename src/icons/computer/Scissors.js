@@ -1,15 +1,15 @@
 import scissorsSrc from "assets/game-icons/scissors.png";
-import UserGameIcon from "./Icon";
+import ComputerGameIcon from "./Icon";
 
 function UserScissorsIcon({ currentOption, setCurrentOption, borderSize }) {
   return (
-    <UserGameIcon
+    <ComputerGameIcon
       iconSrc={scissorsSrc}
       iconOption="scissors"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}
       borderSize={borderSize}
-    ></UserGameIcon>
+    ></ComputerGameIcon>
   );
 }
 

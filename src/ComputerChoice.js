@@ -1,33 +1,33 @@
 import { Center, Stack } from "@chakra-ui/react";
 import { useState } from "react";
-import UserRockIcon from "./icons/user/Rock";
-import UserPaperIcon from "./icons/user/Paper";
-import UserScissorsIcon from "./icons/user/Scissors";
+import ComputerRockIcon from "./icons/computer/Rock";
+import ComputerPaperIcon from "./icons/computer/Paper";
+import ComputerScissorsIcon from "./icons/computer/Scissors";
 
-function UserChoice({ option, setOption }) {
+function ComputerChoice({ option, setOption }) {
   const borderSize = "2px";
 
   return (
     <Center paddingTop="5">
       <Stack direction="row" spacing="30px">
-        <UserRockIcon
+        <ComputerRockIcon
           currentOption={option}
           setCurrentOption={setOption}
           borderSize={borderSize}
-        ></UserRockIcon>
-        <UserPaperIcon
+        ></ComputerRockIcon>
+        <ComputerPaperIcon
           currentOption={option}
           setCurrentOption={setOption}
           borderSize={borderSize}
-        ></UserPaperIcon>
-        <UserScissorsIcon
+        ></ComputerPaperIcon>
+        <ComputerScissorsIcon
           currentOption={option}
           setCurrentOption={setOption}
           borderSize={borderSize}
-        ></UserScissorsIcon>
+        ></ComputerScissorsIcon>
       </Stack>
     </Center>
   );
 }
 
-export default UserChoice;
+export default ComputerChoice;
