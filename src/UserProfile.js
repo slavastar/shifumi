@@ -7,9 +7,9 @@ import {
 
 import defaultAvatar from "./assets/avatars/avatar-1.png";
 
-function UserProfile({ userName }) {
+function UserProfile({ userName, points }) {
+  
   const [name, setName] = useState(userName);
-  const [points, setPoints] = useState(0);
 
   return (
     <>

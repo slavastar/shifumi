@@ -3,17 +3,13 @@ import { Box, Flex } from "@chakra-ui/react";
 
 import ComputerProfile from "./ComputerProfile";
 
-function Computer({ userName, option, setOption }) {
 
-    const getRandomOption = () => {
-        const options = ['rock', 'paper', 'scissors']
-        return options[Math.floor(Math.random() * options.length)];
-    }
+function Computer({ userName, option, setOption, points, setPoints }) {
 
   return (
     <Flex>
       <Box w="600px" h="500px" bg="white">
-        <ComputerProfile userName={userName}></ComputerProfile>
+        <ComputerProfile userName={userName} points={points} setPoints={setPoints}></ComputerProfile>
           <ComputerChoice option={option} setOption={setOption} />
       </Box>
     </Flex>

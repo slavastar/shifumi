@@ -7,9 +7,8 @@ import {
 
 import defaultAvatar from "./assets/avatars/avatar-1.png";
 
-function ComputerProfile({ userName }) {
+function ComputerProfile({ userName, points }) {
   const [name, setName] = useState(userName);
-  const [points, setPoints] = useState(0);
 
   return (
     <>

@@ -1,5 +1,4 @@
 import { Center, Stack } from "@chakra-ui/react";
-import { useState } from "react";
 import ComputerRockIcon from "./icons/computer/Rock";
 import ComputerPaperIcon from "./icons/computer/Paper";
 import ComputerScissorsIcon from "./icons/computer/Scissors";
