@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Image,
   Center,
@@ -7,8 +6,7 @@ import {
 
 import defaultAvatar from "./assets/avatars/avatar-1.png";
 
-function ComputerProfile({ userName, points }) {
-  const [name, setName] = useState(userName);
+function ComputerProfile({ playerName, points }) {
 
   return (
     <>
@@ -20,7 +18,7 @@ function ComputerProfile({ userName, points }) {
             alt="rock"
           />
         </Center>
-        <Heading size="xl">{name}</Heading>
+        <Heading size="xl">{playerName}</Heading>
         <Heading size="md">Points: {points}</Heading>
     </>
   );
