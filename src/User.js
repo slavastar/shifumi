@@ -6,12 +6,10 @@ import UserProfile from "./UserProfile";
 
 function User({ playerName, option, setOption, points }) {
   return (
-    <Flex>
-      <Box w="600px" h="500px" bg="white">
-        <UserProfile playerName={playerName} points={points}></UserProfile>
-        <UserChoice option={option} setOption={setOption} />
-      </Box>
-    </Flex>
+    <Box w="600px" h="400px" bg="gray.100">
+      <UserProfile playerName={playerName} points={points}></UserProfile>
+      <UserChoice option={option} setOption={setOption} />
+    </Box>
   );
 }
 
