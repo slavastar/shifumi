@@ -28,7 +28,6 @@ function Statistics({ games }) {
     <Heading>Statistics</Heading>
       <TableContainer marginTop="20px">
         <Table variant="striped" colorScheme="simple" size="sm">
-          {/* <TableCaption>Last games</TableCaption> */}
           <Thead>
             <Tr>
               <Th>

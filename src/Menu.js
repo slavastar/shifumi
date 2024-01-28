@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Image,
   Center,
@@ -19,6 +19,7 @@ import {
   Switch,
   Tooltip,
 } from "@chakra-ui/react";
+import GameSettings from "GameSettings";
 
 function Menu({
   userName,
@@ -29,6 +30,11 @@ function Menu({
   setUserColor,
   computerColor,
   setComputerColor,
+  pointsToWin,
+  sharePointsInDraw,
+  setSharePointsInDraw,
+  bonusForWinsInRow,
+  setBonusForWinsInRow
 }) {
   const colors = [
     "yellow",
@@ -51,6 +57,8 @@ function Menu({
     setUserAvatar(src);
   };
 
+  useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow])
+
   return (
     <>
       <Heading>Menu</Heading>
@@ -70,32 +78,8 @@ function Menu({
             </FormControl>
           </TabPanel>
           <TabPanel>
-            <Stack direction="vertical">
-              <FormControl>
-                <FormLabel>Points to win</FormLabel>
-                <Select placeholder="Select option">
-                  {[3, 5, 7, 10, 20].map((pointsToWin, i) => (
-                    <option value={pointsToWin}>{pointsToWin}</option>
-                  ))}
-                </Select>
-
-                <Stack direction="row" marginTop="20px">
-                  <FormLabel>Share a point in draws</FormLabel>
-                  <Switch size="lg" />
-                </Stack>
-                <Text align="left" color="gray.500">
-                  In case of a draw, each player receives 0.5 points.
-                </Text>
-
-                <Stack direction="row" marginTop="20px">
-                  <FormLabel>Bonus for 3 wins in a row</FormLabel>
-                  <Switch size="lg" />
-                </Stack>
-                <Text align="left" color="gray.500">
-                  A player receives an additional point for 3 wins in a row.
-                </Text>
-              </FormControl>
-            </Stack>
+            <GameSettings fixed={true} pointsToWin={pointsToWin} sharePointsInDraw={sharePointsInDraw}
+            bonusForWinsInRow={bonusForWinsInRow}></GameSettings>
           </TabPanel>
           <TabPanel>
             <FormLabel>User color theme</FormLabel>

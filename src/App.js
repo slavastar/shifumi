@@ -15,6 +15,7 @@ import { useState } from "react";
 import Statistics from "./Statistics";
 import Menu from "./Menu";
 import defaultAvatar from "./assets/avatars/avatar-1.png";
+import NewGame from "NewGame";
 
 const getRandomOption = () => {
   const options = ["rock", "paper", "scissors"];
@@ -43,6 +44,12 @@ function App() {
   const [userOption, setUserOption] = useState("rock");
   const [computerOption, setComputerOption] = useState(null);
   const [games, setGames] = useState([]);
+
+  const [isNewGame, setIsNewGame] = useState(false)
+
+  const [pointsToWin, setPointsToWin] = useState(3)
+  const [sharePointsInDraw, setSharePointsInDraw] = useState(false)
+  const [bonusForWinsInRow, setBonusForWinsInRow] = useState(false);
   const [userColor, setUserColor] = useState("teal");
   const [computerColor, setComputerColor] = useState("red");
 
@@ -74,9 +81,28 @@ function App() {
   return (
     <div className="App">
       <Heading>Shifumi</Heading>
-      <Wrap spacing="10px" justify="center">
-        <WrapItem></WrapItem>
 
+      <Stack
+        direction="horizontal"
+        justify="center"
+        spacing="100px"
+        marginTop="30px"
+      >
+        <Button colorScheme="blue" onClick={() => setIsNewGame(true)}>New Game</Button>
+        <NewGame isOpen={isNewGame} createGame={() => 0} onClose={() => setIsNewGame(false)}
+        pointsToWin={pointsToWin}
+        setPointsToWin={setPointsToWin}
+        sharePointsInDraw={sharePointsInDraw}
+        setSharePointsInDraw={setSharePointsInDraw}
+        bonusForWinsInRow={bonusForWinsInRow}
+        setBonusForWinsInRow={setBonusForWinsInRow}
+        ></NewGame>
+
+        <Button colorScheme="blue">Rules</Button>
+        <Button colorScheme="blue">About</Button>
+      </Stack>
+
+      <Wrap spacing="10px" justify="center" marginTop="40px">
         <WrapItem>
           <User
             userName={userName}
@@ -84,6 +110,7 @@ function App() {
             option={userOption}
             setOption={setUserOption}
             points={userPoints}
+            playGame={playGame}
           ></User>
         </WrapItem>
 
@@ -113,16 +140,16 @@ function App() {
               setUserColor={setUserColor}
               computerColor={computerColor}
               setComputerColor={setComputerColor}
+              pointsToWin={pointsToWin}
+              sharePointsInDraw={sharePointsInDraw}
+              setSharePointsInDraw={setSharePointsInDraw}
+              bonusForWinsInRow={bonusForWinsInRow}
+              setBonusForWinsInRow={setBonusForWinsInRow}
             ></Menu>
           </Box>
         </WrapItem>
       </Wrap>
 
-      <Box border="10" borderColor="gray.200">
-        <Button colorScheme="blue" marginTop="5" onClick={playGame}>
-          Play
-        </Button>
-      </Box>
     </div>
   );
 }
