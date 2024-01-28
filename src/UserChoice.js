@@ -1,8 +1,8 @@
 import { Center, Stack } from "@chakra-ui/react";
 import { useState } from "react";
-import UserRockIcon from "./icons/user/Rock";
-import UserPaperIcon from "./icons/user/Paper";
-import UserScissorsIcon from "./icons/user/Scissors";
+import UserRockIcon from "icons/user/Rock";
+import UserScissorsIcon from "icons/user/Scissors";
+import UserPaperIcon from "icons/user/Paper";
 
 function UserChoice({ option, setOption, color }) {
   const borderSize = "3px";
