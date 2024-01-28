@@ -13,6 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import Statistics from "./Statistics";
+import Menu from "./Menu";
+import defaultAvatar from "./assets/avatars/avatar-1.png";
 
 const getRandomOption = () => {
   const options = ["rock", "paper", "scissors"];
@@ -34,12 +36,15 @@ const getGameResult = (first, second) => {
 };
 
 function App() {
-
+  const [userName, setUserName] = useState("Player");
+  const [userAvatar, setUserAvatar] = useState(defaultAvatar);
   const [userPoints, setUserPoints] = useState(0);
   const [computerPoints, setComputerPoints] = useState(0);
   const [userOption, setUserOption] = useState("rock");
   const [computerOption, setComputerOption] = useState(null);
-  const [games, setGames] = useState([])
+  const [games, setGames] = useState([]);
+  const [userColor, setUserColor] = useState("teal");
+  const [computerColor, setComputerColor] = useState("red");
 
   const playGame = () => {
     const randomOption = getRandomOption();
@@ -59,11 +64,11 @@ function App() {
     }
 
     const game = {
-      "userOption": userOption,
-      "computerOption": randomOption,
-      "result": result
-    }
-    setGames(games => [...games, game])
+      userOption: userOption,
+      computerOption: randomOption,
+      result: result,
+    };
+    setGames((games) => [...games, game]);
   };
 
   return (
@@ -74,7 +79,8 @@ function App() {
 
         <WrapItem>
           <User
-            playerName="Slava"
+            userName={userName}
+            avatar={userAvatar}
             option={userOption}
             setOption={setUserOption}
             points={userPoints}
@@ -98,7 +104,16 @@ function App() {
 
         <WrapItem>
           <Box w="600px" h="400px" bg="gray.100">
-            {/* <Statistics></Statistics> */}
+            <Menu
+              userName={userName}
+              setUserName={setUserName}
+              userAvatar={userAvatar}
+              setUserAvatar={setUserAvatar}
+              userColor={userColor}
+              setUserColor={setUserColor}
+              computerColor={computerColor}
+              setComputerColor={setComputerColor}
+            ></Menu>
           </Box>
         </WrapItem>
       </Wrap>
