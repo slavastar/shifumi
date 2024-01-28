@@ -8,9 +8,6 @@ import {
   Image,
 } from "@chakra-ui/react";
 
-import trueIconSrc from "assets/boolean-icons/true.png";
-import falseIconSrc from "assets/boolean-icons/false.png";
-
 import { useEffect } from "react";
 
 function GameSettings({
@@ -23,6 +20,9 @@ function GameSettings({
   setBonusForWinsInRow,
 }) {
   useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow]);
+
+  const trueIconSrc = "/assets/boolean-icons/true.png"
+  const falseIconSrc = "/assets/boolean-icons/false.png";
 
   return (
     <Stack direction="vertical">

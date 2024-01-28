@@ -1,10 +1,9 @@
-import paperSrc from "assets/game-icons/paper.png";
 import ComputerGameIcon from "./Icon";
 
-function UserPaperIcon({ currentOption, setCurrentOption, borderSize }) {
+function UserPaperIcon({ currentOption, setCurrentOption, color, borderSize }) {
   return (
     <ComputerGameIcon
-      iconSrc={paperSrc}
+      iconSrc={`/assets/game-icons/paper/${color}.png`}
       iconOption="paper"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}

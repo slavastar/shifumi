@@ -14,9 +14,10 @@ import {
 import { useEffect, useState } from "react";
 import Statistics from "./Statistics";
 import Menu from "./Menu";
-import defaultAvatar from "./assets/avatars/avatar-1.png";
 import NewGame from "NewGame";
 import MatchResult from "MatchResult";
+import Rules from "Rules";
+import About from "About";
 
 const getRandomOption = () => {
   const options = ["rock", "paper", "scissors"];
@@ -38,6 +39,8 @@ const getGameResult = (first, second) => {
 };
 
 function App() {
+  const defaultAvatar = "/assets/avatars/avatar-1.png";
+
   const [userName, setUserName] = useState("Player");
   const [userAvatar, setUserAvatar] = useState(defaultAvatar);
   const [userPoints, setUserPoints] = useState(0);
@@ -45,23 +48,25 @@ function App() {
   const [userOption, setUserOption] = useState("rock");
   const [computerOption, setComputerOption] = useState(null);
   const [games, setGames] = useState([]);
+  const [gamesStartedCount, setGamesStartedCount] = useState(0)
 
   const [isNewGame, setIsNewGame] = useState(false);
   const [isMatchResult, setIsMatchResult] = useState(false);
+  const [areRulesOpened, setAreRulesOpened] = useState(false);
+  const [isAboutOpened, setIsAboutOpened] = useState(false);
 
   const [pointsToWin, setPointsToWin] = useState(3);
   const [sharePointsInDraw, setSharePointsInDraw] = useState(false);
   const [bonusForWinsInRow, setBonusForWinsInRow] = useState(false);
-  const [userColor, setUserColor] = useState("teal");
-  const [computerColor, setComputerColor] = useState("red");
+  const [userColor, setUserColor] = useState("red");
+  const [computerColor, setComputerColor] = useState("twitter");
 
   const createGame = () => {
     setIsMatchResult(false);
     setGames([]);
     setUserPoints(0);
     setComputerPoints(0);
-    console.log("User points: " + userPoints)
-    console.log("Computer points: " + computerPoints)
+    setGamesStartedCount(count => count + 1)
   };
 
   const playGame = () => {
@@ -136,8 +141,19 @@ function App() {
           computerPoints={computerPoints}
         ></MatchResult>
 
-        <Button colorScheme="blue">Rules</Button>
-        <Button colorScheme="blue">About</Button>
+        <Rules
+          isOpen={areRulesOpened}
+          onClose={() => setAreRulesOpened(false)}
+        />
+
+        <About isOpen={isAboutOpened} onClose={() => setIsAboutOpened(false)} />
+
+        <Button colorScheme="blue" onClick={() => setAreRulesOpened(true)}>
+          Rules
+        </Button>
+        <Button colorScheme="blue" onClick={() => setIsAboutOpened(true)}>
+          About
+        </Button>
       </Stack>
 
       <Wrap spacing="10px" justify="center" marginTop="40px">
@@ -148,8 +164,14 @@ function App() {
             option={userOption}
             setOption={setUserOption}
             points={userPoints}
+            color={userColor}
             playGame={playGame}
-            canPlay={userPoints < pointsToWin && computerPoints < pointsToWin && !isNewGame}
+            canPlay={
+              userPoints < pointsToWin &&
+              computerPoints < pointsToWin &&
+              !isNewGame &&
+              gamesStartedCount > 0
+            }
           ></User>
         </WrapItem>
 
@@ -159,6 +181,7 @@ function App() {
             option={computerOption}
             setOption={setComputerOption}
             points={computerPoints}
+            color={computerColor}
           ></Computer>
         </WrapItem>
 

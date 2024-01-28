@@ -1,10 +1,10 @@
-import scissorsSrc from "assets/game-icons/scissors.png";
 import UserGameIcon from "./Icon";
 
-function UserScissorsIcon({ currentOption, setCurrentOption, borderSize }) {
+function UserScissorsIcon({ currentOption, setCurrentOption, color, borderSize }) {
+
   return (
     <UserGameIcon
-      iconSrc={scissorsSrc}
+      iconSrc={`/assets/game-icons/scissors/${color}.png`}
       iconOption="scissors"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}

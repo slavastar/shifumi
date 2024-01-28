@@ -14,10 +14,6 @@ import {
 } from "@chakra-ui/react";
 import GameSettings from "GameSettings";
 
-import winIconSrc from "assets/match-results/win.png";
-import drawIconSrc from "assets/match-results/draw.png";
-import loseIconSrc from "assets/match-results/lose.png";
-
 const getRandomArrayElement = (array) => {
   return array[Math.floor(Math.random() * array.length)];
 };
@@ -31,6 +27,11 @@ function MatchResult({
   userPoints,
   computerPoints,
 }) {
+
+  const winIconSrc = "/assets/match-results/win.png";
+  const drawIconSrc ="/assets/match-results/draw.png";
+  const loseIconSrc = "/assets/match-results/lose.png";
+
   const result =
     userPoints > computerPoints
       ? "win"

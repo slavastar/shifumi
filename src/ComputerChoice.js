@@ -3,8 +3,8 @@ import ComputerRockIcon from "./icons/computer/Rock";
 import ComputerPaperIcon from "./icons/computer/Paper";
 import ComputerScissorsIcon from "./icons/computer/Scissors";
 
-function ComputerChoice({ option, setOption }) {
-  const borderSize = "2px";
+function ComputerChoice({ option, setOption, color }) {
+  const borderSize = "3px";
 
   return (
     <Center paddingTop="5">
@@ -12,16 +12,19 @@ function ComputerChoice({ option, setOption }) {
         <ComputerRockIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></ComputerRockIcon>
         <ComputerPaperIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></ComputerPaperIcon>
         <ComputerScissorsIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></ComputerScissorsIcon>
       </Stack>

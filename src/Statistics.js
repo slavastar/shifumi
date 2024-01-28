@@ -1,8 +1,5 @@
 import { useState } from "react";
 import { Image, Center, Box, Heading } from "@chakra-ui/react";
-import winIconSrc from "assets/game-results/win.png";
-import drawIconSrc from "assets/game-results/draw.png";
-import loseIconSrc from "assets/game-results/lose.png";
 
 import {
   Table,
@@ -16,6 +13,9 @@ import {
 } from "@chakra-ui/react";
 
 function Statistics({ games }) {
+  const winIconSrc = "/assets/game-results/win.png";
+  const drawIconSrc = "/assets/game-results/draw.png";
+  const loseIconSrc = "assets/game-results/lose.png";
 
   const gameIconsSrc = {
     win: winIconSrc,
@@ -25,7 +25,7 @@ function Statistics({ games }) {
 
   return (
     <Box overflowY="auto" maxHeight="360px">
-    <Heading>Statistics</Heading>
+      <Heading>Games</Heading>
       <TableContainer marginTop="20px">
         <Table variant="striped" colorScheme="simple" size="sm">
           <Thead>

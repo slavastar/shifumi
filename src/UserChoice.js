@@ -4,8 +4,8 @@ import UserRockIcon from "./icons/user/Rock";
 import UserPaperIcon from "./icons/user/Paper";
 import UserScissorsIcon from "./icons/user/Scissors";
 
-function UserChoice({ option, setOption }) {
-  const borderSize = "2px";
+function UserChoice({ option, setOption, color }) {
+  const borderSize = "3px";
 
   return (
     <Center paddingTop="5">
@@ -13,16 +13,19 @@ function UserChoice({ option, setOption }) {
         <UserRockIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></UserRockIcon>
         <UserPaperIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></UserPaperIcon>
         <UserScissorsIcon
           currentOption={option}
           setCurrentOption={setOption}
+          color={color}
           borderSize={borderSize}
         ></UserScissorsIcon>
       </Stack>

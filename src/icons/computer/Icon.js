@@ -10,11 +10,14 @@ function ComputerGameIcon({
   }) {
     return (
       <Box
-        borderWidth={iconOption == currentOption ? borderSize : 0}
-        borderColor="black"
+      borderBottomWidth={iconOption == currentOption ? borderSize : 0}
+      borderTopWidth={iconOption == currentOption ? borderSize : 0}
+      borderColor="black"
+      borderRadius="3px"
       >
         <Image
-          boxSize="100px"
+          padding="10px"
+          boxSize="110px"
           objectFit="cover"
           src={iconSrc}
           alt={iconOption}
