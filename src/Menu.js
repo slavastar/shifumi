@@ -34,7 +34,7 @@ function Menu({
   sharePointsInDraw,
   setSharePointsInDraw,
   bonusForWinsInRow,
-  setBonusForWinsInRow
+  setBonusForWinsInRow,
 }) {
   const colors = [
     "yellow",
@@ -49,15 +49,23 @@ function Menu({
     "whatsapp",
   ];
 
+  const [newUserName, setNewUserName] = useState(userName)
+  const [newUserAvatar, setNewUserAvatar] = useState(userAvatar)
+
   const changeAvatar = (e) => {
     const image = e.target.files[0];
     const src = URL.createObjectURL(image);
     console.log(image);
     console.log(src);
-    setUserAvatar(src);
+    setNewUserAvatar(src);
   };
 
-  useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow])
+  const updateUserInformation = () => {
+    setUserName(newUserName)
+    setUserAvatar(newUserAvatar)
+  }
+
+  useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow]);
 
   return (
     <>
@@ -70,26 +78,37 @@ function Menu({
         </TabList>
         <TabPanels>
           <TabPanel>
+
             <FormControl>
               <FormLabel>Name</FormLabel>
-              <Input placeholder="Name" defaultValue={userName}></Input>
+              <Input placeholder="Name" defaultValue={newUserName} onChange={(e) => setNewUserName(e.target.value)}></Input>
               <FormLabel marginTop="20px">Avatar</FormLabel>
               <Input type="file" accept="image/png" onChange={changeAvatar} />
+              <Button
+              colorScheme="blue"
+              marginTop="30px"
+              onClick={updateUserInformation}
+              >Save</Button>
             </FormControl>
+
           </TabPanel>
           <TabPanel>
-            <GameSettings fixed={true} pointsToWin={pointsToWin} sharePointsInDraw={sharePointsInDraw}
-            bonusForWinsInRow={bonusForWinsInRow}></GameSettings>
+            <GameSettings
+              fixed={true}
+              pointsToWin={pointsToWin}
+              sharePointsInDraw={sharePointsInDraw}
+              bonusForWinsInRow={bonusForWinsInRow}
+            ></GameSettings>
           </TabPanel>
           <TabPanel>
             <FormLabel>User color theme</FormLabel>
             <Stack direction="vertical">
               {colors.map((color, i) => (
-                    <Button
-                    colorScheme={color}
-                    size="lg"
-                    onClick={() => setUserColor(color)}
-                    ></Button>
+                <Button
+                  colorScheme={color}
+                  size="lg"
+                  onClick={() => setUserColor(color)}
+                ></Button>
               ))}
             </Stack>
 
