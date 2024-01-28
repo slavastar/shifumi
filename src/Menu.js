@@ -105,6 +105,7 @@ function Menu({
             <Stack direction="vertical">
               {colors.map((color, i) => (
                 <Button
+                  key={"userThemeColor" + color}
                   colorScheme={color}
                   size="lg"
                   onClick={() => setUserColor(color)}
@@ -116,6 +117,7 @@ function Menu({
             <Stack direction="vertical">
               {colors.map((color, i) => (
                 <Button
+                  key={"computerThemeColor" + color}
                   colorScheme={color}
                   size="lg"
                   onClick={() => setComputerColor(color)}

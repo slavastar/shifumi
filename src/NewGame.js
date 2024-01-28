@@ -10,7 +10,17 @@ import {
 } from "@chakra-ui/react";
 import GameSettings from "GameSettings";
 
-function NewGame({ isOpen, onClose, createGame, pointsToWin, setPointsToWin, sharePointsInDraw, setSharePointsInDraw, bonusForWinsInRow, setBonusForWinsInRow }) {
+function NewGame({
+  isOpen,
+  onClose,
+  createGame,
+  pointsToWin,
+  setPointsToWin,
+  sharePointsInDraw,
+  setSharePointsInDraw,
+  bonusForWinsInRow,
+  setBonusForWinsInRow,
+}) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -30,16 +40,18 @@ function NewGame({ isOpen, onClose, createGame, pointsToWin, setPointsToWin, sha
         </ModalBody>
 
         <ModalFooter marginTop="30px">
+          <Button colorScheme="red" onClick={onClose}>
+            Cancel
+          </Button>
           <Button
-            colorScheme="red"
+            colorScheme="blue"
+            mr={3}
             onClick={() => {
               createGame();
               onClose();
             }}
+            marginLeft="15px"
           >
-            Cancel
-          </Button>
-          <Button colorScheme="blue" mr={3} onClick={onClose} marginLeft="15px">
             Create
           </Button>
         </ModalFooter>

@@ -46,7 +46,7 @@ function Statistics({ games }) {
           </Thead>
           <Tbody>
             {games.map((game, i) => (
-              <Tr>
+              <Tr key={"game" + i}>
                 <Td>
                   <Center>{i + 1}</Center>
                 </Td>

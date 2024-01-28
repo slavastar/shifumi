@@ -35,7 +35,7 @@ function GameSettings({
               onChange={(e) => setPointsToWin(e.target.value)}
             >
               {[3, 5, 7, 10, 20].map((pointsToWin, i) => (
-                <option value={pointsToWin}>{pointsToWin}</option>
+                <option key={pointsToWin} value={pointsToWin}>{pointsToWin}</option>
               ))}
             </Select>
           </>
