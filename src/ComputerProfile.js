@@ -6,7 +6,7 @@ function ComputerProfile({ playerName, points, color }) {
 
   return (
     <Box maxWidth="110px">
-      <Center borderWidth="5px" borderColor={color} borderRadius="50%">
+      <Center borderWidth="5px" borderColor={"#" + color} borderRadius="50%">
         <Image
           boxSize="100px"
           objectFit="cover"

@@ -1,6 +1,7 @@
 import ComputerGameIcon from "./Icon";
 
 function UserPaperIcon({ currentOption, setCurrentOption, color, borderSize }) {
+
   return (
     <ComputerGameIcon
       iconSrc={`/assets/game-icons/paper/${color}.png`}

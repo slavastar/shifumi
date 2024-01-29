@@ -40,6 +40,19 @@ const getGameResult = (first, second) => {
   }
 };
 
+const colorMapping = {
+  yellow: "F2C94C",
+  orange: "F2994A",
+  red: "EB5757",
+  pink: "EB5AA5",
+  purple: "9B51E0",
+  blue: "2F80ED",
+  twitter: "51A8F8",
+  cyan: "5AC2E6",
+  teal: "5DACAB",
+  whatsapp: "5DC069",
+};
+
 function App() {
   const defaultAvatar = "/assets/avatars/avatar-1.png";
 
@@ -214,7 +227,7 @@ function App() {
             setOption={setUserOption}
             points={userPoints}
             pointsToWin={pointsToWin}
-            color={userColor}
+            color={colorMapping[userColor]}
             playGame={playGame}
             showBonus={showUserBonus}
             canPlay={
@@ -233,7 +246,7 @@ function App() {
             setOption={setComputerOption}
             points={computerPoints}
             pointsToWin={pointsToWin}
-            color={computerColor}
+            color={colorMapping[computerColor]}
             showBonus={showComputerBonus}
           ></Computer>
         </WrapItem>

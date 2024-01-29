@@ -16,7 +16,9 @@ function User({
   canPlay,
   showBonus,
 }) {
+
   return (
+
     <Box w="600px" h="420px" bg="white" padding="10px" overflowY="auto">
       <Center>
         <Stack direction="horizontal">

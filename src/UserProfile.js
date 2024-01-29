@@ -4,7 +4,7 @@ import { Image, Center, Heading, Box } from "@chakra-ui/react";
 function UserProfile({ userName, avatar, points, color }) {
   return (
     <Box maxWidth="110px">
-      <Center borderWidth="5px" borderColor={color} borderRadius="50%">
+      <Center borderWidth="5px" borderColor={"#" + color} borderRadius="50%">
         <Image
           boxSize="100px"
           objectFit="cover"

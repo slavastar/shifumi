@@ -49,21 +49,19 @@ function Menu({
     "whatsapp",
   ];
 
-  const [newUserName, setNewUserName] = useState(userName)
-  const [newUserAvatar, setNewUserAvatar] = useState(userAvatar)
+  const [newUserName, setNewUserName] = useState(userName);
+  const [newUserAvatar, setNewUserAvatar] = useState(userAvatar);
 
   const changeAvatar = (e) => {
     const image = e.target.files[0];
     const src = URL.createObjectURL(image);
-    console.log(image);
-    console.log(src);
     setNewUserAvatar(src);
   };
 
   const updateUserInformation = () => {
-    setUserName(newUserName)
-    setUserAvatar(newUserAvatar)
-  }
+    setUserName(newUserName);
+    setUserAvatar(newUserAvatar);
+  };
 
   useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow]);
 
@@ -78,19 +76,23 @@ function Menu({
         </TabList>
         <TabPanels>
           <TabPanel>
-
             <FormControl>
               <FormLabel>Name</FormLabel>
-              <Input placeholder="Name" defaultValue={newUserName} onChange={(e) => setNewUserName(e.target.value)}></Input>
+              <Input
+                placeholder="Name"
+                defaultValue={newUserName}
+                onChange={(e) => setNewUserName(e.target.value)}
+              ></Input>
               <FormLabel marginTop="20px">Avatar</FormLabel>
               <Input type="file" accept="image/png" onChange={changeAvatar} />
               <Button
-              colorScheme="blue"
-              marginTop="30px"
-              onClick={updateUserInformation}
-              >Save</Button>
+                colorScheme="blue"
+                marginTop="30px"
+                onClick={updateUserInformation}
+              >
+                Save
+              </Button>
             </FormControl>
-
           </TabPanel>
           <TabPanel>
             <GameSettings
