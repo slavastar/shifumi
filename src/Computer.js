@@ -14,19 +14,19 @@ function Computer({
   showBonus,
 }) {
   return (
-    <Box w="600px" h="400px" minWidth="600px" bg="gray.100">
+    <Box w="600px" h="400px" minWidth="600px" bg="white" padding="20px">
       <Center>
         <Stack direction="horizontal">
           <Center w="200px" h="170px">
-              {points + 1 >= pointsToWin && (
-                <Image
-                  boxSize="135px"
-                  objectFit="cover"
-                  src="/assets/game-results/matchpoint.png"
-                  alt="matchpoint"
-                />
-              )}
-            </Center>
+            {points + 1 >= pointsToWin && (
+              <Image
+                boxSize="135px"
+                objectFit="cover"
+                src="/assets/game-results/matchpoint.png"
+                alt="matchpoint"
+              />
+            )}
+          </Center>
           <Spacer></Spacer>
 
           <ComputerProfile

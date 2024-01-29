@@ -17,7 +17,7 @@ function User({
   showBonus,
 }) {
   return (
-    <Box w="600px" h="400px" bg="gray.100">
+    <Box w="600px" h="400px" bg="white" padding="20px">
       <Center>
         <Stack direction="horizontal">
           <Center w="200px" h="170px">

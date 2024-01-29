@@ -11,7 +11,7 @@ import {
   Wrap,
   WrapItem,
   Alert,
-  AlertIcon
+  AlertIcon,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Statistics from "./Statistics";
@@ -96,8 +96,8 @@ function App() {
   };
 
   const playGame = () => {
-    setShowUserBonus(false)
-    setShowComputerBonus(false)
+    setShowUserBonus(false);
+    setShowComputerBonus(false);
 
     const randomOption = getRandomOption();
     setComputerOption(randomOption);
@@ -118,7 +118,7 @@ function App() {
         console.log("User bonus: " + userBonus);
         if (userBonus) {
           newUserPoints += 2;
-          setShowUserBonus(true)
+          setShowUserBonus(true);
         } else {
           newUserPoints++;
         }
@@ -135,7 +135,7 @@ function App() {
         console.log("Computer bonus: " + computerBonus);
         if (computerBonus) {
           newComputerPoints += 2;
-          setShowComputerBonus(true)
+          setShowComputerBonus(true);
         } else {
           newComputerPoints++;
         }
@@ -150,7 +150,9 @@ function App() {
 
   return (
     <div className="App">
-      <Heading>Shifumi</Heading>
+      <Heading size="2xl" paddingTop="30px">
+        Shifumi
+      </Heading>
 
       <Stack
         direction="horizontal"
@@ -237,13 +239,13 @@ function App() {
         </WrapItem>
 
         <WrapItem>
-          <Box w="600px" h="400px" bg="gray.100">
+          <Box w="600px" h="400px" bg="white">
             <Statistics games={games}></Statistics>
           </Box>
         </WrapItem>
 
         <WrapItem>
-          <Box w="600px" h="400px" bg="gray.100">
+          <Box w="600px" h="400px" bg="white">
             <Menu
               userName={userName}
               setUserName={setUserName}

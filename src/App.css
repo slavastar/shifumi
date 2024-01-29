@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+html {
+  background-image: url("../public/assets/backgrounds/background.jpeg");
+  background-size: cover;
+  /* overflow: hidden; */
+  height: 0px;
+}
+
+body {
+  height: 0px;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
