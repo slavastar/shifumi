@@ -150,7 +150,7 @@ function App() {
 
   return (
     <div className="App">
-      <Heading size="2xl" paddingTop="30px">
+      <Heading size="2xl" paddingTop="15px">
         Shifumi
       </Heading>
 
@@ -158,7 +158,7 @@ function App() {
         direction="horizontal"
         justify="center"
         spacing="100px"
-        marginTop="30px"
+        marginTop="20px"
       >
         <Button colorScheme="blue" onClick={() => setIsNewGame(true)}>
           New Game
@@ -205,7 +205,7 @@ function App() {
         </Button>
       </Stack>
 
-      <Wrap spacing="10px" justify="center" marginTop="40px">
+      <Wrap spacing="10px" justify="center" marginTop="25px">
         <WrapItem>
           <User
             userName={userName}
@@ -239,13 +239,13 @@ function App() {
         </WrapItem>
 
         <WrapItem>
-          <Box w="600px" h="400px" bg="white">
+          <Box w="600px" h="420px" bg="white">
             <Statistics games={games}></Statistics>
           </Box>
         </WrapItem>
 
         <WrapItem>
-          <Box w="600px" h="400px" bg="white">
+          <Box w="600px" h="420px" bg="white">
             <Menu
               userName={userName}
               setUserName={setUserName}

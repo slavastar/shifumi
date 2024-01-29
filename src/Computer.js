@@ -14,7 +14,7 @@ function Computer({
   showBonus,
 }) {
   return (
-    <Box w="600px" h="400px" minWidth="600px" bg="white" padding="20px">
+    <Box w="600px" h="420px" bg="white" padding="10px" overflowY="auto">
       <Center>
         <Stack direction="horizontal">
           <Center w="200px" h="170px">
@@ -33,6 +33,7 @@ function Computer({
             playerName={playerName}
             points={points}
             setPoints={setPoints}
+            color={color}
           ></ComputerProfile>
 
           <Spacer></Spacer>

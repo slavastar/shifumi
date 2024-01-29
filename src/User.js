@@ -17,7 +17,7 @@ function User({
   showBonus,
 }) {
   return (
-    <Box w="600px" h="400px" bg="white" padding="20px">
+    <Box w="600px" h="420px" bg="white" padding="10px" overflowY="auto">
       <Center>
         <Stack direction="horizontal">
           <Center w="200px" h="170px">
@@ -35,6 +35,7 @@ function User({
             userName={userName}
             avatar={avatar}
             points={points}
+            color={color}
           ></UserProfile>
           <Spacer></Spacer>
           <Center w="200px" h="170px">
