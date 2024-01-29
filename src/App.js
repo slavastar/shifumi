@@ -6,14 +6,10 @@ import {
   Heading,
   Stack,
   Button,
-  Flex,
-  Spacer,
   Wrap,
   WrapItem,
-  Alert,
-  AlertIcon,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Statistics from "./Statistics";
 import Menu from "./Menu";
 import NewGame from "NewGame";
