@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/shifumi/static/css/main.fb51c3a5.css",
-    "main.js": "/shifumi/static/js/main.43a0980c.js",
+    "main.js": "/shifumi/static/js/main.c4a97604.js",
     "index.html": "/shifumi/index.html",
     "main.fb51c3a5.css.map": "/shifumi/static/css/main.fb51c3a5.css.map",
-    "main.43a0980c.js.map": "/shifumi/static/js/main.43a0980c.js.map"
+    "main.c4a97604.js.map": "/shifumi/static/js/main.c4a97604.js.map"
   },
   "entrypoints": [
     "static/css/main.fb51c3a5.css",
-    "static/js/main.43a0980c.js"
+    "static/js/main.c4a97604.js"
   ]
 }
