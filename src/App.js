@@ -10,6 +10,8 @@ import {
   Spacer,
   Wrap,
   WrapItem,
+  Alert,
+  AlertIcon
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Statistics from "./Statistics";
@@ -48,12 +50,14 @@ function App() {
   const [userOption, setUserOption] = useState("rock");
   const [computerOption, setComputerOption] = useState(null);
   const [games, setGames] = useState([]);
-  const [gamesStartedCount, setGamesStartedCount] = useState(0)
+  const [gamesStartedCount, setGamesStartedCount] = useState(0);
 
   const [isNewGame, setIsNewGame] = useState(false);
   const [isMatchResult, setIsMatchResult] = useState(false);
   const [areRulesOpened, setAreRulesOpened] = useState(false);
   const [isAboutOpened, setIsAboutOpened] = useState(false);
+  const [showUserBonus, setShowUserBonus] = useState(false);
+  const [showComputerBonus, setShowComputerBonus] = useState(false);
 
   const [pointsToWin, setPointsToWin] = useState(3);
   const [sharePointsInDraw, setSharePointsInDraw] = useState(false);
@@ -66,18 +70,58 @@ function App() {
     setGames([]);
     setUserPoints(0);
     setComputerPoints(0);
-    setGamesStartedCount(count => count + 1)
+    setShowUserBonus(false);
+    setShowComputerBonus(false);
+    setGamesStartedCount((count) => count + 1);
+  };
+
+  const isBonus = (allGames, isUser, consecutiveGames) => {
+    const who = isUser ? "user" : "computer";
+    let lastConsecutiveResults = 0;
+    for (let i = games.length - 1; i >= 0; i--) {
+      if (
+        (who == "user" && allGames[i]["result"] == "win") ||
+        (who == "computer" && allGames[i]["result"] == "lose")
+      ) {
+        lastConsecutiveResults++;
+      } else {
+        break;
+      }
+    }
+    console.log("Last consecutive results: " + lastConsecutiveResults);
+    return (
+      lastConsecutiveResults > 0 &&
+      lastConsecutiveResults % consecutiveGames == 0
+    );
   };
 
   const playGame = () => {
+    setShowUserBonus(false)
+    setShowComputerBonus(false)
+
     const randomOption = getRandomOption();
     setComputerOption(randomOption);
     const result = getGameResult(userOption, randomOption);
     let newUserPoints = userPoints;
     let newComputerPoints = computerPoints;
+
+    const game = {
+      userOption: userOption,
+      computerOption: randomOption,
+      result: result,
+    };
+
     switch (result) {
       case "win":
-        newUserPoints++;
+        const userBonus =
+          isBonus([...games, game], true, 2) && bonusForWinsInRow;
+        console.log("User bonus: " + userBonus);
+        if (userBonus) {
+          newUserPoints += 2;
+          setShowUserBonus(true)
+        } else {
+          newUserPoints++;
+        }
         break;
       case "draw":
         if (sharePointsInDraw) {
@@ -86,18 +130,21 @@ function App() {
         }
         break;
       case "lose":
-        newComputerPoints++;
+        const computerBonus =
+          isBonus([...games, game], false, 2) && bonusForWinsInRow;
+        console.log("Computer bonus: " + computerBonus);
+        if (computerBonus) {
+          newComputerPoints += 2;
+          setShowComputerBonus(true)
+        } else {
+          newComputerPoints++;
+        }
         break;
     }
     setUserPoints(newUserPoints);
     setComputerPoints(newComputerPoints);
     setIsMatchResult(true);
 
-    const game = {
-      userOption: userOption,
-      computerOption: randomOption,
-      result: result,
-    };
     setGames((games) => [...games, game]);
   };
 
@@ -164,8 +211,10 @@ function App() {
             option={userOption}
             setOption={setUserOption}
             points={userPoints}
+            pointsToWin={pointsToWin}
             color={userColor}
             playGame={playGame}
+            showBonus={showUserBonus}
             canPlay={
               userPoints < pointsToWin &&
               computerPoints < pointsToWin &&
@@ -181,7 +230,9 @@ function App() {
             option={computerOption}
             setOption={setComputerOption}
             points={computerPoints}
+            pointsToWin={pointsToWin}
             color={computerColor}
+            showBonus={showComputerBonus}
           ></Computer>
         </WrapItem>
 

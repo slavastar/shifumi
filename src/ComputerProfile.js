@@ -1,10 +1,10 @@
-import { Image, Center, Heading } from "@chakra-ui/react";
+import { Image, Center, Heading, Box } from "@chakra-ui/react";
 
 function ComputerProfile({ playerName, points }) {
   const defaultAvatar = "/assets/avatars/avatar-1.png";
 
   return (
-    <>
+    <Box>
       <Center>
         <Image
           boxSize="100px"
@@ -17,7 +17,7 @@ function ComputerProfile({ playerName, points }) {
       <Heading size="md" marginTop="10px">
         Points: {points}
       </Heading>
-    </>
+    </Box>
   );
 }
 
