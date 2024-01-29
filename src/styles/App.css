@@ -3,9 +3,9 @@
 }
 
 html {
-  background-image: url("../public/assets/backgrounds/background.jpeg");
+  /* background-image: url("../../public/assets/backgrounds/background.jpeg"); */
+  background-image: url("/public/assets/backgrounds/background.jpeg");
   background-size: cover;
-  /* overflow: hidden; */
   height: 0px;
 }
 

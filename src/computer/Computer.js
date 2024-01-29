@@ -1,24 +1,20 @@
-import { Button, Center } from "@chakra-ui/react";
-import UserChoice from "./UserChoice";
-import { Box, Stack, Image, Spacer } from "@chakra-ui/react";
+import ComputerChoice from "./ComputerChoice";
+import { Box, Center, Stack, Image, Spacer } from "@chakra-ui/react";
 
-import UserProfile from "./UserProfile";
+import ComputerProfile from "./ComputerProfile";
 
-function User({
-  userName,
-  avatar,
+function Computer({
+  playerName,
   option,
   setOption,
   points,
+  setPoints,
   pointsToWin,
   color,
-  playGame,
-  canPlay,
   showBonus,
+  rootDirectory,
 }) {
-
   return (
-
     <Box w="600px" h="420px" bg="white" padding="10px" overflowY="auto">
       <Center>
         <Stack direction="horizontal">
@@ -27,44 +23,43 @@ function User({
               <Image
                 boxSize="135px"
                 objectFit="cover"
-                src="/assets/game-results/matchpoint.png"
+                src={`${rootDirectory}assets/game-results/matchpoint.png`}
                 alt="matchpoint"
               />
             )}
           </Center>
           <Spacer></Spacer>
-          <UserProfile
-            userName={userName}
-            avatar={avatar}
+
+          <ComputerProfile
+            playerName={playerName}
             points={points}
+            setPoints={setPoints}
             color={color}
-          ></UserProfile>
+            rootDirectory={rootDirectory}
+          ></ComputerProfile>
+
           <Spacer></Spacer>
           <Center w="200px" h="170px">
             {showBonus && (
               <Image
                 boxSize="135px"
                 objectFit="cover"
-                src="/assets/game-results/bonus.png"
+                src={`${rootDirectory}assets/game-results/bonus.png`}
                 alt="bonus"
               />
             )}
           </Center>
         </Stack>
       </Center>
-      <UserChoice option={option} setOption={setOption} color={color} />
-      <Box border="10" borderColor="gray.200">
-        <Button
-          colorScheme="blue"
-          marginTop="5"
-          onClick={playGame}
-          isDisabled={!canPlay}
-        >
-          Play
-        </Button>
-      </Box>
+
+      <ComputerChoice
+        option={option}
+        setOption={setOption}
+        color={color}
+        rootDirectory={rootDirectory}
+      />
     </Box>
   );
 }
 
-export default User;
+export default Computer;

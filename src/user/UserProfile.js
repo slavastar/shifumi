@@ -1,7 +1,8 @@
 import { Image, Center, Heading, Box } from "@chakra-ui/react";
 
-function ComputerProfile({ playerName, points, color }) {
-  const defaultAvatar = "/assets/avatars/avatar-1.png";
+function UserProfile({ userName, avatar, points, color }) {
+
+  console.log(avatar)
 
   return (
     <Box maxWidth="110px">
@@ -9,15 +10,13 @@ function ComputerProfile({ playerName, points, color }) {
         <Image
           boxSize="100px"
           objectFit="cover"
-          src={defaultAvatar}
-          // src={avatarSrc}
+          src={avatar}
           alt="avatar"
           borderRadius="50%"
         />
       </Center>
-      <Heading size="md" marginTop="10px">
-        {playerName}
-      </Heading>
+
+      <Heading size="md" marginTop="10px">{userName}</Heading>
       <Heading size="md" marginTop="10px">
         Points: {points}
       </Heading>
@@ -25,4 +24,4 @@ function ComputerProfile({ playerName, points, color }) {
   );
 }
 
-export default ComputerProfile;
+export default UserProfile;

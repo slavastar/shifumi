@@ -1,21 +1,14 @@
-import "./App.css";
-import User from "./User";
-import Computer from "./Computer";
-import {
-  Box,
-  Heading,
-  Stack,
-  Button,
-  Wrap,
-  WrapItem,
-} from "@chakra-ui/react";
+import "./styles/App.css";
+import User from "./user/User";
+import Computer from "./computer/Computer";
+import { Box, Heading, Stack, Button, Wrap, WrapItem } from "@chakra-ui/react";
 import { useState } from "react";
 import Statistics from "./Statistics";
 import Menu from "./Menu";
-import NewGame from "NewGame";
+import NewGame from "modal-windows/NewGame";
 import MatchResult from "MatchResult";
-import Rules from "Rules";
-import About from "About";
+import Rules from "modal-windows/Rules";
+import About from "modal-windows/About";
 
 const getRandomOption = () => {
   const options = ["rock", "paper", "scissors"];
@@ -50,7 +43,10 @@ const colorMapping = {
 };
 
 function App() {
-  const defaultAvatar = "/assets/avatars/avatar-1.png";
+  const rootDirectory = "./";
+  // const rootDirectory = '/'
+
+  const defaultAvatar = `${rootDirectory}assets/avatars/avatar-1.png`;
 
   const [userName, setUserName] = useState("Player");
   const [userAvatar, setUserAvatar] = useState(defaultAvatar);
@@ -197,6 +193,7 @@ function App() {
           computerName="Computer"
           userPoints={userPoints}
           computerPoints={computerPoints}
+          rootDirectory={rootDirectory}
         ></MatchResult>
 
         <Rules
@@ -232,6 +229,7 @@ function App() {
               !isNewGame &&
               gamesStartedCount > 0
             }
+            rootDirectory={rootDirectory}
           ></User>
         </WrapItem>
 
@@ -244,12 +242,16 @@ function App() {
             pointsToWin={pointsToWin}
             color={colorMapping[computerColor]}
             showBonus={showComputerBonus}
+            rootDirectory={rootDirectory}
           ></Computer>
         </WrapItem>
 
         <WrapItem>
           <Box w="600px" h="420px" bg="white">
-            <Statistics games={games}></Statistics>
+            <Statistics
+              games={games}
+              rootDirectory={rootDirectory}
+            ></Statistics>
           </Box>
         </WrapItem>
 
@@ -269,6 +271,7 @@ function App() {
               setSharePointsInDraw={setSharePointsInDraw}
               bonusForWinsInRow={bonusForWinsInRow}
               setBonusForWinsInRow={setBonusForWinsInRow}
+              rootDirectory={rootDirectory}
             ></Menu>
           </Box>
         </WrapItem>

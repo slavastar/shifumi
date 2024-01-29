@@ -35,6 +35,7 @@ function Menu({
   setSharePointsInDraw,
   bonusForWinsInRow,
   setBonusForWinsInRow,
+  rootDirectory
 }) {
   const colors = [
     "yellow",
@@ -100,6 +101,7 @@ function Menu({
               pointsToWin={pointsToWin}
               sharePointsInDraw={sharePointsInDraw}
               bonusForWinsInRow={bonusForWinsInRow}
+              rootDirectory={rootDirectory}
             ></GameSettings>
           </TabPanel>
           <TabPanel>

@@ -1,9 +1,9 @@
 import ComputerGameIcon from "./Icon";
 
-function UserScissorsIcon({ currentOption, setCurrentOption, color, borderSize }) {
+function UserScissorsIcon({ currentOption, setCurrentOption, color, borderSize, rootDirectory }) {
   return (
     <ComputerGameIcon
-      iconSrc={`/assets/game-icons/scissors/${color}.png`}
+      iconSrc={`${rootDirectory}assets/game-icons/scissors/${color}.png`}
       iconOption="scissors"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}

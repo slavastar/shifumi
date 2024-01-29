@@ -5,11 +5,11 @@ function UserScissorsIcon({
   setCurrentOption,
   color,
   borderSize,
+  rootDirectory
 }) {
   return (
     <UserGameIcon
-      // iconSrc={`~/documents/apps/shifumi/public/assets/game-icons/scissors/${color}.png`}
-      iconSrc={`/assets/game-icons/scissors/${color}.png`}
+      iconSrc={`${rootDirectory}assets/game-icons/scissors/${color}.png`}
       iconOption="scissors"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}

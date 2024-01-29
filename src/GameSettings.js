@@ -18,11 +18,12 @@ function GameSettings({
   setSharePointsInDraw,
   bonusForWinsInRow,
   setBonusForWinsInRow,
+  rootDirectory
 }) {
   useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow]);
 
-  const trueIconSrc = "/assets/boolean-icons/true.png"
-  const falseIconSrc = "/assets/boolean-icons/false.png";
+  const trueIconSrc = `${rootDirectory}assets/boolean-icons/true.png`
+  const falseIconSrc = `${rootDirectory}assets/boolean-icons/false.png`;
 
   return (
     <Stack direction="vertical">

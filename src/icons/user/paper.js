@@ -1,9 +1,9 @@
 import UserGameIcon from "./Icon";
 
-function UserPaperIcon({ currentOption, setCurrentOption, color, borderSize }) {
+function UserPaperIcon({ currentOption, setCurrentOption, color, borderSize, rootDirectory }) {
   return (
     <UserGameIcon
-      iconSrc={`/assets/game-icons/paper/${color}.png`}
+      iconSrc={`${rootDirectory}assets/game-icons/paper/${color}.png`}
       iconOption="paper"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}

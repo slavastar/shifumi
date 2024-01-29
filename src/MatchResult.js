@@ -26,11 +26,12 @@ function MatchResult({
   computerName,
   userPoints,
   computerPoints,
+  rootDirectory
 }) {
 
-  const winIconSrc = "/assets/match-results/win.png";
-  const drawIconSrc ="/assets/match-results/draw.png";
-  const loseIconSrc = "/assets/match-results/lose.png";
+  const winIconSrc = "assets/match-results/win.png";
+  const drawIconSrc ="assets/match-results/draw.png";
+  const loseIconSrc = "assets/match-results/lose.png";
 
   const result =
     userPoints > computerPoints
@@ -70,7 +71,7 @@ function MatchResult({
             <Image
               boxSize="200px"
               objectFit="cover"
-              src={resultIconSrc[result]}
+              src={`${rootDirectory}${resultIconSrc[result]}`}
               alt={result}
             ></Image>
           </Center>

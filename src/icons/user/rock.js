@@ -1,9 +1,9 @@
 import UserGameIcon from "./Icon";
 
-function UserRockIcon({ currentOption, setCurrentOption, color, borderSize }) {
+function UserRockIcon({ currentOption, setCurrentOption, color, borderSize, rootDirectory }) {
   return (
     <UserGameIcon
-      iconSrc={`/assets/game-icons/rock/${color}.png`}
+      iconSrc={`${rootDirectory}assets/game-icons/rock/${color}.png`}
       iconOption="rock"
       currentOption={currentOption}
       setCurrentOption={setCurrentOption}
