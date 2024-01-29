@@ -1,9 +1,14 @@
 import UserGameIcon from "./Icon";
 
-function UserScissorsIcon({ currentOption, setCurrentOption, color, borderSize }) {
-
+function UserScissorsIcon({
+  currentOption,
+  setCurrentOption,
+  color,
+  borderSize,
+}) {
   return (
     <UserGameIcon
+      // iconSrc={`~/documents/apps/shifumi/public/assets/game-icons/scissors/${color}.png`}
       iconSrc={`/assets/game-icons/scissors/${color}.png`}
       iconOption="scissors"
       currentOption={currentOption}
