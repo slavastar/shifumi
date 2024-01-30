@@ -15,11 +15,10 @@ function NewGame({
   onClose,
   createGame,
   pointsToWin,
-  setPointsToWin,
   sharePointsInDraw,
-  setSharePointsInDraw,
   bonusForWinsInRow,
-  setBonusForWinsInRow,
+  newGameOptions,
+  setNewGameOptions
 }) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -31,11 +30,10 @@ function NewGame({
           <GameSettings
             fixed={false}
             pointsToWin={pointsToWin}
-            setPointsToWin={setPointsToWin}
             sharePointsInDraw={sharePointsInDraw}
-            setSharePointsInDraw={setSharePointsInDraw}
             bonusForWinsInRow={bonusForWinsInRow}
-            setBonusForWinsInRow={setBonusForWinsInRow}
+            newGameOptions={newGameOptions}
+            setNewGameOptions={setNewGameOptions}
           />
         </ModalBody>
 

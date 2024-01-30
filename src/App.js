@@ -44,7 +44,6 @@ const colorMapping = {
 
 function App() {
   const rootDirectory = "./";
-  // const rootDirectory = '/'
 
   const defaultAvatar = `${rootDirectory}assets/avatars/avatar-1.png`;
 
@@ -58,6 +57,12 @@ function App() {
   const [gamesStartedCount, setGamesStartedCount] = useState(0);
 
   const [isNewGame, setIsNewGame] = useState(false);
+  const [newGameOptions, setNewGameOptions] = useState({
+    "pointsToWin": 3,
+    "sharePointsInDraw": false,
+    "bonusForWinsInDraw": false
+  });
+
   const [isMatchResult, setIsMatchResult] = useState(false);
   const [areRulesOpened, setAreRulesOpened] = useState(false);
   const [isAboutOpened, setIsAboutOpened] = useState(false);
@@ -71,6 +76,10 @@ function App() {
   const [computerColor, setComputerColor] = useState("twitter");
 
   const createGame = () => {
+    setPointsToWin(newGameOptions["pointsToWin"])
+    setSharePointsInDraw(newGameOptions["sharePointsInDraw"])
+    setBonusForWinsInRow(newGameOptions["bonusForWinsInDraw"])
+    setNewGameOptions({ ...newGameOptions, ...{"pointsToWin": 3 }})
     setIsMatchResult(false);
     setGames([]);
     setUserPoints(0);
@@ -83,7 +92,7 @@ function App() {
   const isBonus = (allGames, isUser, consecutiveGames) => {
     const who = isUser ? "user" : "computer";
     let lastConsecutiveResults = 0;
-    for (let i = games.length - 1; i >= 0; i--) {
+    for (let i = games.length; i >= 0; i--) {
       if (
         (who == "user" && allGames[i]["result"] == "win") ||
         (who == "computer" && allGames[i]["result"] == "lose")
@@ -93,7 +102,6 @@ function App() {
         break;
       }
     }
-    console.log("Last consecutive results: " + lastConsecutiveResults);
     return (
       lastConsecutiveResults > 0 &&
       lastConsecutiveResults % consecutiveGames == 0
@@ -119,8 +127,7 @@ function App() {
     switch (result) {
       case "win":
         const userBonus =
-          isBonus([...games, game], true, 2) && bonusForWinsInRow;
-        console.log("User bonus: " + userBonus);
+          isBonus([...games, game], true, 3) && bonusForWinsInRow;
         if (userBonus) {
           newUserPoints += 2;
           setShowUserBonus(true);
@@ -136,8 +143,7 @@ function App() {
         break;
       case "lose":
         const computerBonus =
-          isBonus([...games, game], false, 2) && bonusForWinsInRow;
-        console.log("Computer bonus: " + computerBonus);
+          isBonus([...games, game], false, 3) && bonusForWinsInRow;
         if (computerBonus) {
           newComputerPoints += 2;
           setShowComputerBonus(true);
@@ -178,6 +184,8 @@ function App() {
           setSharePointsInDraw={setSharePointsInDraw}
           bonusForWinsInRow={bonusForWinsInRow}
           setBonusForWinsInRow={setBonusForWinsInRow}
+          newGameOptions={newGameOptions}
+          setNewGameOptions={setNewGameOptions}
         ></NewGame>
 
         <MatchResult

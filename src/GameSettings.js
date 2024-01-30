@@ -13,16 +13,15 @@ import { useEffect } from "react";
 function GameSettings({
   fixed,
   pointsToWin,
-  setPointsToWin,
   sharePointsInDraw,
-  setSharePointsInDraw,
   bonusForWinsInRow,
-  setBonusForWinsInRow,
-  rootDirectory
+  newGameOptions,
+  setNewGameOptions,
+  rootDirectory,
 }) {
   useEffect(() => {}, [sharePointsInDraw, bonusForWinsInRow]);
 
-  const trueIconSrc = `${rootDirectory}assets/boolean-icons/true.png`
+  const trueIconSrc = `${rootDirectory}assets/boolean-icons/true.png`;
   const falseIconSrc = `${rootDirectory}assets/boolean-icons/false.png`;
 
   return (
@@ -32,11 +31,13 @@ function GameSettings({
           <>
             <FormLabel>Points to win</FormLabel>
             <Select
-              defaultChecked={3}
-              onChange={(e) => setPointsToWin(e.target.value)}
+              defaultChecked={newGameOptions["pointsToWin"]}
+              onChange={(e) => setNewGameOptions({ ...newGameOptions, ...{"pointsToWin": e.target.value }})}
             >
               {[3, 5, 7, 10, 20].map((pointsToWin, i) => (
-                <option key={pointsToWin} value={pointsToWin}>{pointsToWin}</option>
+                <option key={pointsToWin} value={pointsToWin}>
+                  {pointsToWin}
+                </option>
               ))}
             </Select>
           </>
@@ -44,7 +45,9 @@ function GameSettings({
           <FormLabel align="left">Points to win: {pointsToWin} </FormLabel>
         )}
         <Text align="left" color="gray.500">
-          The first player to get {pointsToWin} points, wins the match.
+          The first player to get{" "}
+          {fixed ? pointsToWin : newGameOptions["pointsToWin"]} points, wins the
+          match.
         </Text>
 
         <Stack direction="row" marginTop="20px">
@@ -61,7 +64,7 @@ function GameSettings({
               size="lg"
               isDisabled={fixed}
               defaultChecked={sharePointsInDraw}
-              onChange={(e) => setSharePointsInDraw(!sharePointsInDraw)}
+              onChange={(e) => setNewGameOptions({ ...newGameOptions, ...{"sharePointsInDraw": !newGameOptions["sharePointsInDraw"] }})}
             />
           )}
         </Stack>
@@ -74,7 +77,7 @@ function GameSettings({
         </Text>
 
         <Stack direction="row" marginTop="20px">
-          <FormLabel>Bonus for 3 wins in a row</FormLabel>
+          <FormLabel>Shifumi bonus</FormLabel>
           {fixed ? (
             <Image
               boxSize="25px"
@@ -87,9 +90,7 @@ function GameSettings({
               size="lg"
               isDisabled={fixed}
               defaultChecked={bonusForWinsInRow}
-              onChange={(e) => {
-                setBonusForWinsInRow(!bonusForWinsInRow);
-              }}
+              onChange={(e) => setNewGameOptions({ ...newGameOptions, ...{"bonusForWinsInDraw": !newGameOptions["bonusForWinsInDraw"] }})}
             />
           )}
         </Stack>

@@ -5,10 +5,10 @@ function ComputerProfile({ playerName, points, color, rootDirectory }) {
   const defaultAvatar = `${rootDirectory}assets/avatars/avatar-1.png`;
 
   return (
-    <Box maxWidth="110px">
+    <Box maxWidth="120px">
       <Center borderWidth="5px" borderColor={"#" + color} borderRadius="50%">
         <Image
-          boxSize="100px"
+          boxSize="110px"
           objectFit="cover"
           src={defaultAvatar}
           alt="avatar"

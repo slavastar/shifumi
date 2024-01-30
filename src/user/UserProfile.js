@@ -2,13 +2,11 @@ import { Image, Center, Heading, Box } from "@chakra-ui/react";
 
 function UserProfile({ userName, avatar, points, color }) {
 
-  console.log(avatar)
-
   return (
-    <Box maxWidth="110px">
+    <Box maxWidth="120px">
       <Center borderWidth="5px" borderColor={"#" + color} borderRadius="50%">
         <Image
-          boxSize="100px"
+          boxSize="110px"
           objectFit="cover"
           src={avatar}
           alt="avatar"
