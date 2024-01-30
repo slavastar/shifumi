@@ -70,7 +70,7 @@ function GameSettings({
         </Stack>
         <Text align="left" color="gray.500">
           In case of a draw,
-          {sharePointsInDraw
+          {(fixed && sharePointsInDraw) || (!fixed && newGameOptions["sharePointsInDraw"])
             ? " each player receives 0.5 points"
             : " nobody gains a point"}
           .
@@ -90,12 +90,12 @@ function GameSettings({
               size="lg"
               isDisabled={fixed}
               defaultChecked={bonusForWinsInRow}
-              onChange={(e) => setNewGameOptions({ ...newGameOptions, ...{"bonusForWinsInDraw": !newGameOptions["bonusForWinsInDraw"] }})}
+              onChange={(e) => setNewGameOptions({ ...newGameOptions, ...{"bonusForWinsInRow": !newGameOptions["bonusForWinsInRow"] }})}
             />
           )}
         </Stack>
         <Text align="left" color="gray.500">
-          A player {bonusForWinsInRow ? "receives" : "does not receive"} an
+          A player {(fixed && bonusForWinsInRow) || (!fixed && newGameOptions["bonusForWinsInRow"]) ? "receives" : "does not receive"} an
           additional point for 3 wins in a row.
         </Text>
       </FormControl>

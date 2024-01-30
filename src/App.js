@@ -78,7 +78,7 @@ function App() {
   const createGame = () => {
     setPointsToWin(newGameOptions["pointsToWin"])
     setSharePointsInDraw(newGameOptions["sharePointsInDraw"])
-    setBonusForWinsInRow(newGameOptions["bonusForWinsInDraw"])
+    setBonusForWinsInRow(newGameOptions["bonusForWinsInRow"])
     setNewGameOptions({ ...newGameOptions, ...{"pointsToWin": 3 }})
     setIsMatchResult(false);
     setGames([]);

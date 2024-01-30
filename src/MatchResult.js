@@ -26,11 +26,10 @@ function MatchResult({
   computerName,
   userPoints,
   computerPoints,
-  rootDirectory
+  rootDirectory,
 }) {
-
   const winIconSrc = "assets/match-results/win.png";
-  const drawIconSrc ="assets/match-results/draw.png";
+  const drawIconSrc = "assets/match-results/draw.png";
   const loseIconSrc = "assets/match-results/lose.png";
 
   const result =
@@ -63,10 +62,12 @@ function MatchResult({
         <ModalHeader>Match Results</ModalHeader>
         <ModalCloseButton />
         <ModalBody marginTop="10px">
-          <Heading size="md" align="center">
-            {" "}
-            {userName} {userPoints} - {computerPoints} {computerName}
-          </Heading>
+          <Center>
+            <Heading size="md" align="center">
+              {" "}
+              {userName} {userPoints} - {computerPoints} {computerName}
+            </Heading>
+          </Center>
           <Center>
             <Image
               boxSize="200px"
@@ -81,16 +82,18 @@ function MatchResult({
         </ModalBody>
 
         <ModalFooter marginTop="30px">
-          <Button
-            colorScheme="red"
-            onClick={onClose}
-          >
+          <Button colorScheme="red" onClick={onClose}>
             Close
           </Button>
-          <Button colorScheme="blue" mr={3} onClick={() => {
-            onClose()
-            createGame()
-          }} marginLeft="15px">
+          <Button
+            colorScheme="blue"
+            mr={3}
+            onClick={() => {
+              onClose();
+              createGame();
+            }}
+            marginLeft="15px"
+          >
             New Game
           </Button>
         </ModalFooter>
