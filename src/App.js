@@ -177,7 +177,10 @@ function App() {
         <NewGame
           isOpen={isNewGame}
           createGame={createGame}
-          onClose={() => setIsNewGame(false)}
+          onClose={() => {
+            setIsNewGame(false)
+            setNewGameOptions({ ...newGameOptions, ...{"pointsToWin": 3 }})
+          }}
           pointsToWin={pointsToWin}
           setPointsToWin={setPointsToWin}
           sharePointsInDraw={sharePointsInDraw}
