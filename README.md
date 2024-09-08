@@ -1,7 +1,7 @@
 # Shifumi ✊✋✌️
 This repository contains the implementation of the "**Rock paper scissors game**".
 
-The web application can be accessed [here](https://slavafive.github.io/shifumi/).
+The web application can be accessed [here](https://slavastar.github.io/shifumi/).
 
 ## Rules 📗
 As a player, your ultimate goal is to beat the computer in a match consisting of multiple mini shifumi games.
